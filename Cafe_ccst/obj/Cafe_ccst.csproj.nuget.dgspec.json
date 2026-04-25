@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\IceDream\\Downloads\\Clarkian_cafe1-main (1)\\ccstt\\Cafe_ccst\\Cafe_ccst.csproj": {}
+    "C:\\Users\\IceDream\\source\\repos\\Clarkian_cafe2\\Cafe_ccst\\Cafe_ccst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\IceDream\\Downloads\\Clarkian_cafe1-main (1)\\ccstt\\Cafe_ccst\\Cafe_ccst.csproj": {
+    "C:\\Users\\IceDream\\source\\repos\\Clarkian_cafe2\\Cafe_ccst\\Cafe_ccst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\IceDream\\Downloads\\Clarkian_cafe1-main (1)\\ccstt\\Cafe_ccst\\Cafe_ccst.csproj",
+        "projectUniqueName": "C:\\Users\\IceDream\\source\\repos\\Clarkian_cafe2\\Cafe_ccst\\Cafe_ccst.csproj",
         "projectName": "Cafe_ccst",
-        "projectPath": "C:\\Users\\IceDream\\Downloads\\Clarkian_cafe1-main (1)\\ccstt\\Cafe_ccst\\Cafe_ccst.csproj",
+        "projectPath": "C:\\Users\\IceDream\\source\\repos\\Clarkian_cafe2\\Cafe_ccst\\Cafe_ccst.csproj",
         "packagesPath": "C:\\Users\\IceDream\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\IceDream\\Downloads\\Clarkian_cafe1-main (1)\\ccstt\\Cafe_ccst\\obj\\",
+        "outputPath": "C:\\Users\\IceDream\\source\\repos\\Clarkian_cafe2\\Cafe_ccst\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -55,6 +55,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[9.6.0, )"
+            },
+            "WinForms.DataVisualization": {
+              "target": "Package",
+              "version": "[1.10.0, )"
             }
           },
           "imports": [

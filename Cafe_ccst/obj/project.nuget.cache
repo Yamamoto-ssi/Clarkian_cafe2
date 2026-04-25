@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4FD/6T4mqfE=",
+  "dgSpecHash": "d7//kddWWAk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\IceDream\\Downloads\\Clarkian_cafe1-main (1)\\ccstt\\Cafe_ccst\\Cafe_ccst.csproj",
+  "projectFilePath": "C:\\Users\\IceDream\\source\\repos\\Clarkian_cafe2\\Cafe_ccst\\Cafe_ccst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\IceDream\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\IceDream\\.nuget\\packages\\google.protobuf\\3.32.0\\google.protobuf.3.32.0.nupkg.sha512",
@@ -16,6 +16,7 @@
     "C:\\Users\\IceDream\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
     "C:\\Users\\IceDream\\.nuget\\packages\\system.security.permissions\\8.0.0\\system.security.permissions.8.0.0.nupkg.sha512",
     "C:\\Users\\IceDream\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
+    "C:\\Users\\IceDream\\.nuget\\packages\\winforms.datavisualization\\1.10.0\\winforms.datavisualization.1.10.0.nupkg.sha512",
     "C:\\Users\\IceDream\\.nuget\\packages\\zstdsharp.port\\0.8.6\\zstdsharp.port.0.8.6.nupkg.sha512"
   ],
   "logs": []
