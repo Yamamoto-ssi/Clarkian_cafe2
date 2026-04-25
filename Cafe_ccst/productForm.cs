@@ -18,6 +18,7 @@ namespace Cafe_ccst
         public productForm()
         {
             InitializeComponent();
+            LoadProducts();
         }
 
         private void productForm_Load(object sender, EventArgs e)
@@ -56,7 +57,7 @@ namespace Cafe_ccst
             try
             {
                 db.Open();
-                string query = "INSERT INTO products (category_id, name, description, price, image_url) VALUES (@category_id, @name, @description, @price, @image_url)";
+                string query = "INSERT INTO products (category_id,name, description, price, image_url) VALUES (@category_id, @name, @description, @price, @image_url)";
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
 
                 cmd.Parameters.AddWithValue("@category_id", categoryId);
@@ -111,44 +112,88 @@ namespace Cafe_ccst
 
         private void LoadProducts()
         {
+            string search = txtSearch.Text.Trim();
             DBConnect db = new DBConnect();
 
             try
             {
                 db.Open();
 
-                // 1. Search the products table for matches in the name or description
                 string query = @"SELECT product_id, category_id, name, description, price, image_url 
-                     FROM products 
-                     WHERE name LIKE @search 
-                     OR description LIKE @search";
+                         FROM products 
+                         WHERE product_id LIKE @search 
+                            OR category_id LIKE @search 
+                            OR name LIKE @search 
+                            OR description LIKE @search 
+                            OR image_url LIKE @search";
 
                 MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
-                cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
+                cmd.Parameters.AddWithValue("@search", "%" + search + "%");
 
                 MySql.Data.MySqlClient.MySqlDataAdapter adapter = new MySql.Data.MySqlClient.MySqlDataAdapter(cmd);
 
                 System.Data.DataTable table = new System.Data.DataTable();
                 adapter.Fill(table);
 
-                // 2. Bind the data to your specific DataGridView
+                // --- NEW CODE: LOAD IMAGES INTO DATATABLE ---
+
+                // 1. Add a new column specifically for the Image object
+                table.Columns.Add("ProductImage", typeof(System.Drawing.Image));
+
+                // 2. Loop through each row to load the image from the file path
+                foreach (System.Data.DataRow row in table.Rows)
+                {
+                    string imagePath = row["image_url"].ToString();
+
+                    // Check if the file actually exists to prevent the app from crashing
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        // Using a stream prevents the image file from being locked by the application
+                        using (var stream = new System.IO.FileStream(imagePath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                        {
+                            row["ProductImage"] = System.Drawing.Image.FromStream(stream);
+                        }
+                    }
+                    else
+                    {
+                        // If the file doesn't exist, you can leave it null or load a default "Image Not Found" picture
+                        row["ProductImage"] = null;
+                    }
+                }
+
+                // ---------------------------------------------
+
+                // Bind the data to your DataGridView
                 dgvProductList.DataSource = table;
 
-                // 3. Rename the headers so they look clean on your dashboard
-                dgvProductList.Columns["product_id"].HeaderText = "Product ID";
-                dgvProductList.Columns["category_id"].HeaderText = "Category ID";
-                dgvProductList.Columns["name"].HeaderText = "Product Name";
+                // Hide the text-based URL column so it doesn't clutter the grid
+                dgvProductList.Columns["image_url"].Visible = false;
+
+                // Rename the headers
+                dgvProductList.Columns["product_id"].HeaderText = "Product";
+                dgvProductList.Columns["category_id"].HeaderText = "Category";
+                dgvProductList.Columns["name"].HeaderText = "Name";
                 dgvProductList.Columns["description"].HeaderText = "Description";
                 dgvProductList.Columns["price"].HeaderText = "Price";
-                dgvProductList.Columns["image_url"].HeaderText = "Image Path";
+                dgvProductList.Columns["ProductImage"].HeaderText = "Image"; // Header for new image column
+
+                // --- NEW CODE: FORMATTING THE IMAGE COLUMN ---
+
+                // Make the rows taller so you can actually see the image
+                dgvProductList.RowTemplate.Height = 80;
+
+                // Make sure the image resizes to fit inside the cell perfectly without stretching
+                if (dgvProductList.Columns["ProductImage"] is DataGridViewImageColumn imageCol)
+                {
+                    imageCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                }
 
                 adapter.Dispose();
                 cmd.Dispose();
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message);
             }
             finally
             {
@@ -157,12 +202,18 @@ namespace Cafe_ccst
         }
 
 
+
         private void dgvProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+           LoadProducts();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadProducts();
         }

@@ -31,13 +31,12 @@
             btnInventory = new Button();
             btnProducts = new Button();
             btnOrders = new Button();
-            btnReports = new Button();
             SuspendLayout();
             // 
             // btnInventory
             // 
             btnInventory.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInventory.Location = new Point(156, 71);
+            btnInventory.Location = new Point(140, 232);
             btnInventory.Name = "btnInventory";
             btnInventory.Size = new Size(249, 86);
             btnInventory.TabIndex = 1;
@@ -48,7 +47,7 @@
             // btnProducts
             // 
             btnProducts.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnProducts.Location = new Point(499, 71);
+            btnProducts.Location = new Point(488, 232);
             btnProducts.Name = "btnProducts";
             btnProducts.Size = new Size(249, 86);
             btnProducts.TabIndex = 2;
@@ -59,7 +58,7 @@
             // btnOrders
             // 
             btnOrders.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOrders.Location = new Point(175, 212);
+            btnOrders.Location = new Point(280, 345);
             btnOrders.Name = "btnOrders";
             btnOrders.Size = new Size(249, 86);
             btnOrders.TabIndex = 3;
@@ -67,23 +66,11 @@
             btnOrders.UseVisualStyleBackColor = true;
             btnOrders.Click += btnOrders_Click;
             // 
-            // btnReports
-            // 
-            btnReports.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReports.Location = new Point(499, 212);
-            btnReports.Name = "btnReports";
-            btnReports.Size = new Size(249, 86);
-            btnReports.TabIndex = 4;
-            btnReports.Text = "REPORTS";
-            btnReports.UseVisualStyleBackColor = true;
-            btnReports.Click += btnReports_Click;
-            // 
             // manager_dashboard
-            //
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 768);
-            Controls.Add(btnReports);
             Controls.Add(btnOrders);
             Controls.Add(btnProducts);
             Controls.Add(btnInventory);
@@ -97,6 +84,5 @@
         private Button btnInventory;
         private Button btnProducts;
         private Button btnOrders;
-        private Button btnReports;
     }
 }

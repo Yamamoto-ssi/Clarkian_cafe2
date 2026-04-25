@@ -13,6 +13,8 @@ namespace Cafe_ccst
         public Login()
         {
             InitializeComponent();
+
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -78,6 +80,16 @@ namespace Cafe_ccst
             l registerForm = new l();
             registerForm.Show();
             this.Hide();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

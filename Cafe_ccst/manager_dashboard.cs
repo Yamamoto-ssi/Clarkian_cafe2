@@ -26,12 +26,11 @@ namespace Cafe_ccst
         {
             productForm product = new productForm();
             product.ShowDialog();
-            this.Hide();
         }
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnReports_Click(object sender, EventArgs e)

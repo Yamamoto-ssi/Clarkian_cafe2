@@ -46,6 +46,7 @@
             txtSearch = new TextBox();
             btnSearch = new Button();
             lblSearch = new Label();
+            btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProductList).BeginInit();
             SuspendLayout();
             // 
@@ -170,8 +171,10 @@
             // 
             // dgvProductList
             // 
+            dgvProductList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProductList.BackgroundColor = SystemColors.ActiveCaption;
             dgvProductList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductList.GridColor = SystemColors.MenuHighlight;
             dgvProductList.Location = new Point(315, 71);
             dgvProductList.Name = "dgvProductList";
             dgvProductList.Size = new Size(697, 485);
@@ -204,11 +207,22 @@
             lblSearch.TabIndex = 42;
             lblSearch.Text = "Search Product by Name/Desc:";
             // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(899, 30);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(75, 23);
+            btnRefresh.TabIndex = 43;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
             // productForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 761);
+            Controls.Add(btnRefresh);
             Controls.Add(dgvProductList);
             Controls.Add(lblSearch);
             Controls.Add(btnSearch);
@@ -255,5 +269,6 @@
         private TextBox txtSearch;
         private Button btnSearch;
         private Label lblSearch;
+        private Button btnRefresh;
     }
 }

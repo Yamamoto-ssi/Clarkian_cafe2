@@ -74,9 +74,10 @@
             btnOverview.TabIndex = 3;
             btnOverview.Text = "OVERVIEW";
             btnOverview.UseVisualStyleBackColor = true;
+            btnOverview.Click += btnOverview_Click;
             // 
             // admin_dashboard
-            //
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 768);
@@ -86,6 +87,7 @@
             Controls.Add(btnUser);
             Name = "admin_dashboard";
             Text = "admin_dashboard";
+            Load += admin_dashboard_Load;
             ResumeLayout(false);
         }
 

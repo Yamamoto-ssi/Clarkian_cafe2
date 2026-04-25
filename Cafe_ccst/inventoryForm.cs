@@ -16,5 +16,10 @@ namespace Cafe_ccst
         {
             InitializeComponent();
         }
+
+        private void dgvProductList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

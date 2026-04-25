@@ -45,7 +45,9 @@
             label3 = new Label();
             label4 = new Label();
             dgvProductList = new DataGridView();
+            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dgvProductList).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // txtName
@@ -189,12 +191,21 @@
             dgvProductList.Name = "dgvProductList";
             dgvProductList.Size = new Size(626, 483);
             dgvProductList.TabIndex = 1;
+            dgvProductList.CellContentClick += dgvProductList_CellContentClick;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(417, 655);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(120, 23);
+            numericUpDown1.TabIndex = 19;
             // 
             // inventoryForm
-            //
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 768);
+            Controls.Add(numericUpDown1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -215,6 +226,7 @@
             Name = "inventoryForm";
             Text = "inventoryForm";
             ((System.ComponentModel.ISupportInitialize)dgvProductList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -238,5 +250,6 @@
         private Label label3;
         private Label label4;
         private DataGridView dgvProductList;
+        private NumericUpDown numericUpDown1;
     }
 }
