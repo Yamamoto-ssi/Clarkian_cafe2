@@ -32,6 +32,7 @@
             btnLogs = new Button();
             btnBackup = new Button();
             btnOverview = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btnUser
@@ -54,6 +55,7 @@
             btnLogs.TabIndex = 1;
             btnLogs.Text = "LOGS";
             btnLogs.UseVisualStyleBackColor = true;
+            btnLogs.Click += btnLogs_Click;
             // 
             // btnBackup
             // 
@@ -64,6 +66,7 @@
             btnBackup.TabIndex = 2;
             btnBackup.Text = "BACKUP";
             btnBackup.UseVisualStyleBackColor = true;
+            btnBackup.Click += btnBackup_Click;
             // 
             // btnOverview
             // 
@@ -76,11 +79,23 @@
             btnOverview.UseVisualStyleBackColor = true;
             btnOverview.Click += btnOverview_Click;
             // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(830, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(143, 46);
+            button1.TabIndex = 4;
+            button1.Text = "LOG OUT";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // admin_dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 768);
+            Controls.Add(button1);
             Controls.Add(btnOverview);
             Controls.Add(btnBackup);
             Controls.Add(btnLogs);
@@ -97,5 +112,6 @@
         private Button btnLogs;
         private Button btnBackup;
         private Button btnOverview;
+        private Button button1;
     }
 }

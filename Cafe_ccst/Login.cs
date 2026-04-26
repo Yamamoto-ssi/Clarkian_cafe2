@@ -42,14 +42,17 @@ namespace Cafe_ccst
                 cmd.Parameters.AddWithValue("@password", password);
 
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
+
                 if (username == "admin" && password == "password123")
                 {
+                    RecordLogin(username); // <--- THIS is what actually saves them to the database!
                     admin_dashboard adminDashboard = new admin_dashboard();
                     adminDashboard.Show();
                     this.Hide();
                 }
                 else if (username == "manager" && password == "password123")
                 {
+                    RecordLogin(username); // <--- Records the manager
                     manager_dashboard managerDashboard = new manager_dashboard();
                     managerDashboard.Show();
                     this.Hide();
@@ -57,6 +60,7 @@ namespace Cafe_ccst
                 else if (count > 0)
                 {
                     MessageBox.Show("Login successful!", "Login");
+                    RecordLogin(username); // <--- Records the employee
                     employee_dashboard employeeDashboard = new employee_dashboard();
                     employeeDashboard.Show();
                     this.Hide();
@@ -73,6 +77,34 @@ namespace Cafe_ccst
                 MessageBox.Show("An error occurred while connecting to the database: " + ex.Message, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { db.Close(); }
+        }
+
+        private void RecordLogin(string loggedInUser)
+        {
+            DBConnect db = new DBConnect();
+            try
+            {
+                db.Open();
+
+                // Notice we are inserting into your 'logs' table to match your viewer code!
+                string query = "INSERT INTO logs (username, login_time) VALUES (@user, @time)";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
+
+                cmd.Parameters.AddWithValue("@user", loggedInUser);
+                cmd.Parameters.AddWithValue("@time", DateTime.Now);
+
+                cmd.ExecuteNonQuery();
+                cmd.Dispose();
+            }
+            catch (Exception ex)
+            {
+                // We write to the console instead of a MessageBox so a database glitch doesn't stop them from working
+                Console.WriteLine("Error recording log: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
         }
 
         private void lblRegister_Click(object sender, EventArgs e)

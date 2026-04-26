@@ -154,7 +154,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Login";
-            Text = "Login";
+            Text = "Log In";
             Load += Login_Load;
             ResumeLayout(false);
             PerformLayout();

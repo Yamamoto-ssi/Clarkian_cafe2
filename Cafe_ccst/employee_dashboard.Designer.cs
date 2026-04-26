@@ -30,7 +30,8 @@
         {
             btnMenu = new Button();
             btnPayments = new Button();
-            btnTools = new Button();
+            btnOrder = new Button();
+            btnLogout = new Button();
             SuspendLayout();
             // 
             // btnMenu
@@ -54,22 +55,35 @@
             btnPayments.Text = "PAYMENTS";
             btnPayments.UseVisualStyleBackColor = true;
             // 
-            // btnTools
+            // btnOrder
             // 
-            btnTools.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTools.Location = new Point(235, 186);
-            btnTools.Name = "btnTools";
-            btnTools.Size = new Size(249, 86);
-            btnTools.TabIndex = 6;
-            btnTools.Text = "TOOLS";
-            btnTools.UseVisualStyleBackColor = true;
+            btnOrder.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOrder.Location = new Point(273, 257);
+            btnOrder.Name = "btnOrder";
+            btnOrder.Size = new Size(249, 86);
+            btnOrder.TabIndex = 6;
+            btnOrder.Text = "ORDER LIST";
+            btnOrder.UseVisualStyleBackColor = true;
+            btnOrder.Click += btnOrder_Click;
+            // 
+            // btnLogout
+            // 
+            btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Location = new Point(829, 28);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(143, 46);
+            btnLogout.TabIndex = 7;
+            btnLogout.Text = "LOG OUT";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // employee_dashboard
-            //
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 768);
-            Controls.Add(btnTools);
+            Controls.Add(btnLogout);
+            Controls.Add(btnOrder);
             Controls.Add(btnPayments);
             Controls.Add(btnMenu);
             Name = "employee_dashboard";
@@ -81,6 +95,7 @@
 
         private Button btnMenu;
         private Button btnPayments;
-        private Button btnTools;
+        private Button btnOrder;
+        private Button btnLogout;
     }
 }

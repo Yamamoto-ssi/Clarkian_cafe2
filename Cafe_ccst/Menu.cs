@@ -79,6 +79,72 @@ namespace Cafe_ccst
             }
         }
 
+        private void SaveTransaction()
+        {
+            DBConnect db = new DBConnect();
+            try
+            {
+                db.Open();
+
+                // Loop through every item ordered
+                foreach (var item in lstOrders.Items)
+                {
+                    string itemText = item.ToString();
+                    string[] parts = itemText.Split('-');
+
+                    if (parts.Length > 1)
+                    {
+                        // Extract the name and price from the listbox
+                        string productName = parts[0].Trim();
+                        string priceText = parts[1].Replace("₱", "").Replace(",", "").Trim();
+
+                        if (decimal.TryParse(priceText, out decimal itemPrice))
+                        {
+                            // UPDATED SQL: Added 'product_name' to the INSERT list, and reused '@name' in the VALUES
+                            string query = @"INSERT INTO sales (product_id, product_name, quantity, amount, sale_date) 
+                                     VALUES ((SELECT product_id FROM products WHERE name = @name LIMIT 1), 
+                                     @name, 1, @amount, @saledate)";
+
+                            MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
+
+                            // These parameters safely fill in the @ symbols in the query above
+                            cmd.Parameters.AddWithValue("@name", productName);
+                            cmd.Parameters.AddWithValue("@amount", itemPrice);
+                            cmd.Parameters.AddWithValue("@saledate", DateTime.Now);
+
+                            cmd.ExecuteNonQuery();
+                            cmd.Dispose();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving transaction: " + ex.Message);
+            }
+            finally
+            {
+                db.Close();
+            }
+
+
+        }
+
+        private void ResetOrder()
+        {
+            // Clear the listbox
+            lstOrders.Items.Clear();
+
+            // Clear textboxes
+            txtRaw.Text = "";
+            txtDiscount.Text = "";
+            txtTotal.Text = "";
+
+            // Reset radio button to regular
+            rbRegular.Checked = true;
+            pnlDiscount.Enabled = false;
+        }
+
 
 
 
@@ -177,8 +243,59 @@ namespace Cafe_ccst
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            Pay pay = new Pay();
-            pay.ShowDialog();
+
+            // SAFETY CHECK 1: Is the cart empty?
+            if (lstOrders.Items.Count == 0)
+            {
+                MessageBox.Show("Please add items to the order first!");
+                return;
+            }
+
+            // Clean the total string and pass it to the Pay form
+            string cleanTotal = txtTotal.Text.Replace("₱", "").Replace(",", "").Trim();
+
+
+            // ==========================================
+            // --- NEW RECEIPT GENERATOR START ---
+            // ==========================================
+            string receiptText = "====== CAFE CCST ======\n";
+            receiptText += "Date: " + DateTime.Now.ToString() + "\n\n";
+
+            // Loop through the listbox to add the items to the paper
+            foreach (var item in lstOrders.Items)
+            {
+                receiptText += item.ToString() + "\n";
+            }
+
+            receiptText += "\n-----------------------\n";
+            receiptText += "Subtotal: " + txtRaw.Text + "\n";
+
+            // Only print the discount line if there is actually a discount!
+            if (txtDiscount.Text != "₱ 0.00" && txtDiscount.Text != "")
+            {
+                receiptText += "Discount: " + txtDiscount.Text + "\n";
+            }
+
+            receiptText += "Total:    " + txtTotal.Text + "\n";
+            // ==========================================
+            // --- NEW RECEIPT GENERATOR END ---
+            // ==========================================
+
+            // Open your Pay form and hand it the cleaned total number
+            Pay pay = new Pay(cleanTotal, receiptText);
+
+
+
+            // Wait to see if the whole payment process finishes successfully...
+            if (pay.ShowDialog() == DialogResult.OK)
+            {
+                // 1. Save all the items to the database!
+                SaveTransaction();
+
+                // 2. Wipe the screen clean for the next customer!
+                ResetOrder();
+            }
+
         }
 
         private void flpProducts_Paint(object sender, PaintEventArgs e)
@@ -227,6 +344,13 @@ namespace Cafe_ccst
         {
             UpdateTotal();
 
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            employee_dashboard employeeDashboard = new employee_dashboard();
+            employeeDashboard.Show();
+            this.Hide();
         }
     }
 }

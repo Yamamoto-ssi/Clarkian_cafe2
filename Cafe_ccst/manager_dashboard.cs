@@ -17,9 +17,7 @@ namespace Cafe_ccst
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-            inventoryForm inventory = new inventoryForm();
-            inventory.Show();
-            this.Hide();
+           
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
@@ -30,11 +28,19 @@ namespace Cafe_ccst
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
 
         }
     }

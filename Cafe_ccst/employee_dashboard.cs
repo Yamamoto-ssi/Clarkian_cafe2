@@ -21,5 +21,18 @@ namespace Cafe_ccst
             menu.Show();
             this.Hide();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+                        orderlist_employee orderList = new orderlist_employee();
+                                    orderList.Show();
+        }
     }
 }

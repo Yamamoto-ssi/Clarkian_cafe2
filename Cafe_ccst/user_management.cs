@@ -141,5 +141,44 @@ namespace Cafe_ccst
         {
 
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            admin_dashboard adminDashboard = new admin_dashboard();
+            adminDashboard.Show();
+            this.Hide();
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            
+            // 1. Check if an account is actually selected
+            if (dgvAccounts.CurrentRow == null || dgvAccounts.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show("Please select an account from the table first.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Grab all the data from the selected row
+            int selectedID = Convert.ToInt32(dgvAccounts.CurrentRow.Cells["id"].Value);
+            string lastname = dgvAccounts.CurrentRow.Cells["lastname"].Value.ToString();
+            string firstname = dgvAccounts.CurrentRow.Cells["firstname"].Value.ToString();
+            string middlename = dgvAccounts.CurrentRow.Cells["middlename"].Value.ToString();
+            string email = dgvAccounts.CurrentRow.Cells["email"].Value.ToString();
+            string username = dgvAccounts.CurrentRow.Cells["username"].Value.ToString();
+            string password = dgvAccounts.CurrentRow.Cells["password"].Value.ToString();
+
+            // 3. Open the update form and pass the data directly into it
+            // (You will see a red line here until we complete Step 2!)
+            update_user updateForm = new update_user(selectedID, lastname, firstname, middlename, email, username, password);
+
+            // 4. Show the form, and wait for it to close
+            updateForm.ShowDialog();
+
+            // 5. Refresh the grid so the new changes appear instantly!
+            LoadStudents();
+        }
     }
+    
 }

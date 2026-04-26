@@ -31,6 +31,7 @@
             btnInventory = new Button();
             btnProducts = new Button();
             btnOrders = new Button();
+            btnLogout = new Button();
             SuspendLayout();
             // 
             // btnInventory
@@ -66,11 +67,23 @@
             btnOrders.UseVisualStyleBackColor = true;
             btnOrders.Click += btnOrders_Click;
             // 
+            // btnLogout
+            // 
+            btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Location = new Point(857, 23);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(143, 46);
+            btnLogout.TabIndex = 8;
+            btnLogout.Text = "LOG OUT";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // manager_dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 768);
+            Controls.Add(btnLogout);
             Controls.Add(btnOrders);
             Controls.Add(btnProducts);
             Controls.Add(btnInventory);
@@ -84,5 +97,6 @@
         private Button btnInventory;
         private Button btnProducts;
         private Button btnOrders;
+        private Button btnLogout;
     }
 }

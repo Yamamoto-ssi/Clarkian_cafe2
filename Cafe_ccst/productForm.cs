@@ -210,12 +210,75 @@ namespace Cafe_ccst
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-           LoadProducts();
+            LoadProducts();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadProducts();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            manager_dashboard managerDashboard = new manager_dashboard();
+            managerDashboard.Show();
+            this.Hide();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvProductList.CurrentRow == null || dgvProductList.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show("Please select a product from the list first.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Ask the user for confirmation before deleting
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this product? This action cannot be undone.", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.No)
+            {
+                return; // Stop here if they click No
+            }
+
+            // 3. Grab the ID directly from the selected row's "product_id" column
+            int selectedProductId = Convert.ToInt32(dgvProductList.CurrentRow.Cells["product_id"].Value);
+
+            // 4. Connect to the database and delete the record
+            DBConnect db = new DBConnect();
+
+            try
+            {
+                db.Open();
+
+                string query = "DELETE FROM products WHERE product_id = @id";
+                MySql.Data.MySqlClient.MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, db.Connection);
+
+                cmd.Parameters.AddWithValue("@id", selectedProductId);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                cmd.Dispose();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Product deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 5. Instantly refresh the grid so the deleted product disappears
+                    LoadProducts();
+                }
+                else
+                {
+                    MessageBox.Show("Delete failed. Product could not be found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                db.Close();
+            }
         }
     }
 }

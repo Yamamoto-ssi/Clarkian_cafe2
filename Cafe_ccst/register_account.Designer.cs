@@ -44,6 +44,7 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            btnLogout = new Button();
             SuspendLayout();
             // 
             // label1
@@ -194,11 +195,23 @@
             label8.TabIndex = 21;
             label8.Text = "Confirm Password:";
             // 
+            // btnLogout
+            // 
+            btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Location = new Point(869, 12);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(143, 46);
+            btnLogout.TabIndex = 22;
+            btnLogout.Text = "Back";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // l
-            //
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 768);
+            Controls.Add(btnLogout);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -239,5 +252,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private Button btnLogout;
     }
 }

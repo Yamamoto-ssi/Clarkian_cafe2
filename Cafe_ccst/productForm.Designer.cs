@@ -47,6 +47,7 @@
             btnSearch = new Button();
             lblSearch = new Label();
             btnRefresh = new Button();
+            btnLogout = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProductList).BeginInit();
             SuspendLayout();
             // 
@@ -151,6 +152,7 @@
             btnDelete.TabIndex = 36;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // txtCategory_ID
             // 
@@ -217,11 +219,23 @@
             btnRefresh.UseVisualStyleBackColor = true;
             btnRefresh.Click += btnRefresh_Click;
             // 
+            // btnLogout
+            // 
+            btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Location = new Point(869, 703);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(143, 46);
+            btnLogout.TabIndex = 44;
+            btnLogout.Text = "Back";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // productForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1024, 761);
+            Controls.Add(btnLogout);
             Controls.Add(btnRefresh);
             Controls.Add(dgvProductList);
             Controls.Add(lblSearch);
@@ -270,5 +284,6 @@
         private Button btnSearch;
         private Label lblSearch;
         private Button btnRefresh;
+        private Button btnLogout;
     }
 }

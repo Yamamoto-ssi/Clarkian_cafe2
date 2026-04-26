@@ -7,22 +7,31 @@
     <Compile Update="admin_dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Change.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="employee_dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="inventoryForm.cs">
+    <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Login.cs">
+    <Compile Update="Logs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="manager_dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="orderlist_employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="orderlist_manager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Pay.cs">
@@ -35,6 +44,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="register_account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="update_user.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="user_management.cs">

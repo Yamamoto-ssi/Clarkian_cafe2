@@ -44,6 +44,7 @@
             rbSeniorCitizen = new RadioButton();
             btnPay = new Button();
             pnlDiscount = new Panel();
+            btnLogout = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -216,11 +217,23 @@
             pnlDiscount.Size = new Size(317, 49);
             pnlDiscount.TabIndex = 4;
             // 
+            // btnLogout
+            // 
+            btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Location = new Point(12, 729);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(143, 46);
+            btnLogout.TabIndex = 8;
+            btnLogout.Text = "Back";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1109, 766);
+            ClientSize = new Size(1109, 812);
+            Controls.Add(btnLogout);
             Controls.Add(pnlDiscount);
             Controls.Add(btnPay);
             Controls.Add(panel3);
@@ -255,5 +268,6 @@
         private Label label2;
         private Label label1;
         private Panel pnlDiscount;
+        private Button btnLogout;
     }
 }

@@ -12,63 +12,79 @@ namespace Cafe_ccst
 {
     public partial class Pay : Form
     {
-        public Pay()
+        private float totalAmountToPay = 0;
+        private string currentReceipt = ""; // <--- NEW
+
+        // 2. Update these parentheses to catch BOTH the total AND the receipt string
+        public Pay(string totalFromMenu, string receiptFromMenu)
         {
             InitializeComponent();
+
+            // Put the total on the screen
+            lblTotal.Text = $"₱ {totalFromMenu}";
+
+            // Safely convert that string into our float variable
+            float.TryParse(totalFromMenu, out totalAmountToPay);
+
+            // Save the receipt text into memory so we can use it later!
+            currentReceipt = receiptFromMenu; // <--- NEW
+        }
+    
+    // ... the rest of your code (panel1_Paint, btnPay_Click, etc.) stays exactly the same!
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
-        private void btnCompute_Click(object sender, EventArgs e)
+        private void btnPay_Click(object sender, EventArgs e)
         {
-            if (!float.TryParse(txtRawAmount.Text, out float raw_amount))
+            if (string.IsNullOrWhiteSpace(txtCash.Text))
             {
-                MessageBox.Show("Please enter a valid number for the Amount.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Stops the code from continuing and crashing
-            }
-
-            // 2. SAFELY try to read the Cash
-            if (!float.TryParse(txtCash.Text, out float cash))
-            {
-                MessageBox.Show("Please enter a valid number for the Cash.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Stops the code
-            }
-
-            // --- The rest of your code remains exactly the same! ---
-            float discount = 0;
-            float total = raw_amount;
-
-            if (rbSeniorCitizen.Checked)
-            {
-                discount = raw_amount * 0.20f;
-            }
-            else if (rbPWD.Checked)
-            {
-                discount = raw_amount * 0.15f;
-            }
-
-            // ... [rest of your logic down to txtTotal.Text = total.ToString("0.00");]
-
-        // 3. Apply the discount to the total
-        total = raw_amount - discount;
-        
-            // 4. NOW check if the cash is sufficient (after the discount is applied)
-            if (cash < total)
-            {
-                MessageBox.Show("Insufficient cash. The final total is ₱" + total.ToString("0.00"), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter the customer's cash amount!");
                 return;
             }
 
-            // 5. Calculate the change
-            float change = cash - total;
+            // Try to read the cash they typed
+            if (float.TryParse(txtCash.Text, out float cashAmount))
+            {
+                // Did they give enough money?
+                if (cashAmount < totalAmountToPay)
+                {
+                    MessageBox.Show("Insufficient cash!");
+                    return;
+                }
 
-            // 6. Update the UI for EVERYONE (not just Senior Citizens)
-            txtTotal.Text = total.ToString("0.00");
-            txtChange.Text = change.ToString("0.00");
-            txtDiscont.Text = discount.ToString("0.00");
-            // Optional: If you have textboxes for Discount and Change, you can display them like this:
-            // txtDiscount.Text = discount.ToString("0.00");
-            // txtChange.Text = change.ToString("0.00");
+                // Calculate the exact change
+                float chnge = cashAmount - totalAmountToPay;
+
+                // ==========================================
+                // --- NEW RECEIPT FINISHING CODE ---
+                // ==========================================
+                currentReceipt += "Cash:     ₱ " + cashAmount.ToString("0.00") + "\n";
+                currentReceipt += "Change:   ₱ " + chnge.ToString("0.00") + "\n";
+                currentReceipt += "=======================\n";
+                currentReceipt += "      THANK YOU!       ";
+                // ==========================================
+
+                // Open the Change form and pass BOTH the change number and the finished receipt!
+                Change changeScreen = new Change(chnge, currentReceipt);
+
+                // If they click PROCEED on the change screen...
+                if (changeScreen.ShowDialog() == DialogResult.OK)
+                {
+                    // Send the "OK" signal back down the chain to the Menu form!
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid number for the cash!");
+            }
         }
     }
+    
 
 }
     

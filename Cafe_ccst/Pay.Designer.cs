@@ -28,51 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            pnlTotal = new Panel();
-            pnlCash = new Panel();
-            panel1.SuspendLayout();
+            panel2 = new Panel();
+            lblTotal = new Label();
+            btnPay = new Button();
+            panel3 = new Panel();
+            txtCash = new TextBox();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // panel2
             // 
-            panel1.Controls.Add(pnlCash);
-            panel1.Controls.Add(pnlTotal);
-            panel1.Location = new Point(3, 1);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(396, 397);
-            panel1.TabIndex = 0;
+            panel2.BackColor = Color.Bisque;
+            panel2.Controls.Add(lblTotal);
+            panel2.Location = new Point(29, 35);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(355, 182);
+            panel2.TabIndex = 9;
             // 
-            // pnlTotal
+            // lblTotal
             // 
-            pnlTotal.Location = new Point(9, 24);
-            pnlTotal.Name = "pnlTotal";
-            pnlTotal.Size = new Size(369, 132);
-            pnlTotal.TabIndex = 0;
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.Location = new Point(94, 60);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(109, 50);
+            lblTotal.TabIndex = 0;
+            lblTotal.Text = "Total";
             // 
-            // pnlCash
+            // btnPay
             // 
-            pnlCash.Location = new Point(9, 190);
-            pnlCash.Name = "pnlCash";
-            pnlCash.Size = new Size(369, 132);
-            pnlCash.TabIndex = 1;
+            btnPay.BackColor = SystemColors.ControlDark;
+            btnPay.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPay.Location = new Point(237, 473);
+            btnPay.Name = "btnPay";
+            btnPay.Size = new Size(147, 37);
+            btnPay.TabIndex = 8;
+            btnPay.Text = "PAY";
+            btnPay.UseVisualStyleBackColor = false;
+            btnPay.Click += btnPay_Click;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.MistyRose;
+            panel3.Controls.Add(txtCash);
+            panel3.Location = new Point(29, 236);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(355, 231);
+            panel3.TabIndex = 7;
+            // 
+            // txtCash
+            // 
+            txtCash.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtCash.Location = new Point(22, 93);
+            txtCash.Name = "txtCash";
+            txtCash.Size = new Size(317, 39);
+            txtCash.TabIndex = 0;
             // 
             // Pay
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(393, 395);
-            Controls.Add(panel1);
+            ClientSize = new Size(424, 520);
+            Controls.Add(panel2);
+            Controls.Add(btnPay);
+            Controls.Add(panel3);
             Name = "Pay";
             Text = "Pay";
-            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private Panel pnlCash;
-        private Panel pnlTotal;
+        private Panel panel2;
+        private Label lblTotal;
+        private Button btnPay;
+        private Panel panel3;
+        private TextBox txtCash;
     }
 }
