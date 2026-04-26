@@ -105,7 +105,6 @@ C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.admin_dashboard.resources
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.employee_dashboard.resources
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.Form1.resources
-C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.inventoryForm.resources
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.Login.resources
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.manager_dashboard.resources
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.Menu.resources
@@ -129,3 +128,9 @@ C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\bin\Debug\net8.0-windows
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\bin\Debug\net8.0-windows7.0\WinForms.DataVisualization.dll
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.ProductCard.resources
 C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.Pay.resources
+C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.Change.resources
+C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.Logs.resources
+C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.update_user.resources
+C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.orderlist_employee.resources
+C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\bin\Debug\net8.0-windows7.0\MySqlBackup.dll
+C:\Users\IceDream\source\repos\Clarkian_cafe2\Cafe_ccst\obj\Debug\net8.0-windows7.0\Cafe_ccst.orderlist_manager.resources

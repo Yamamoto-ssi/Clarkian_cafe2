@@ -9,6 +9,7 @@
       "Cafe_ccst/1.0.0": {
         "dependencies": {
           "MySql.Data": "9.6.0",
+          "MySqlBackup.NET": "2.7.0",
           "WinForms.DataVisualization": "1.10.0"
         },
         "runtime": {
@@ -101,6 +102,17 @@
           }
         }
       },
+      "MySqlBackup.NET/2.7.0": {
+        "dependencies": {
+          "MySql.Data": "9.6.0"
+        },
+        "runtime": {
+          "lib/net8.0/MySqlBackup.dll": {
+            "assemblyVersion": "2.7.0.0",
+            "fileVersion": "2.7.0.0"
+          }
+        }
+      },
       "System.IO.Pipelines/6.0.3": {
         "runtime": {
           "lib/net6.0/System.IO.Pipelines.dll": {
@@ -178,6 +190,13 @@
       "sha512": "sha512-jjCXNBxLLQHBcyYyOP4yp5jqljStH2qGFXXg3jBMdwYQk9ihpLH9BXoMyc/J3421pENBDjCf/eGi9Ow0Ib7LUA==",
       "path": "mysql.data/9.6.0",
       "hashPath": "mysql.data.9.6.0.nupkg.sha512"
+    },
+    "MySqlBackup.NET/2.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L2knDgyFIiskFVtJM35UsCuMooZSXGXHfc57s4fQfKbXpRPFnF66IPHQRUSc6GFCN2tZwEKfgIQw1ifG1gH51g==",
+      "path": "mysqlbackup.net/2.7.0",
+      "hashPath": "mysqlbackup.net.2.7.0.nupkg.sha512"
     },
     "System.IO.Pipelines/6.0.3": {
       "type": "package",

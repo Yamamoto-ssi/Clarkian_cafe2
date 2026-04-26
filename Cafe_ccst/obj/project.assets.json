@@ -115,6 +115,18 @@
           }
         }
       },
+      "MySqlBackup.NET/2.7.0": {
+        "type": "package",
+        "dependencies": {
+          "MySql.Data": "9.6.0"
+        },
+        "compile": {
+          "lib/net8.0/MySqlBackup.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/MySqlBackup.dll": {}
+        }
+      },
       "System.Configuration.ConfigurationManager/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -402,6 +414,24 @@
         "runtimes/win-x64/native/krbcc64.dll"
       ]
     },
+    "MySqlBackup.NET/2.7.0": {
+      "sha512": "L2knDgyFIiskFVtJM35UsCuMooZSXGXHfc57s4fQfKbXpRPFnF66IPHQRUSc6GFCN2tZwEKfgIQw1ifG1gH51g==",
+      "type": "package",
+      "path": "mysqlbackup.net/2.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/MySqlBackup.dll",
+        "lib/net48/MySqlBackup.dll",
+        "lib/net8.0/MySqlBackup.dll",
+        "lib/net9.0/MySqlBackup.dll",
+        "lib/netstandard2.0/MySqlBackup.dll",
+        "lib/netstandard2.1/MySqlBackup.dll",
+        "mysqlbackup.net.2.7.0.nupkg.sha512",
+        "mysqlbackup.net.nuspec"
+      ]
+    },
     "System.Configuration.ConfigurationManager/8.0.0": {
       "sha512": "JlYi9XVvIREURRUlGMr1F6vOFLk7YSY4p1vHo4kX3tQ0AGrjqlRWHDi66ImHhy6qwXBG3BJ6Y1QlYQ+Qz6Xgww==",
       "type": "package",
@@ -649,6 +679,7 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "MySql.Data >= 9.6.0",
+      "MySqlBackup.NET >= 2.7.0",
       "WinForms.DataVisualization >= 1.10.0"
     ]
   },
@@ -707,6 +738,10 @@
           "MySql.Data": {
             "target": "Package",
             "version": "[9.6.0, )"
+          },
+          "MySqlBackup.NET": {
+            "target": "Package",
+            "version": "[2.7.0, )"
           },
           "WinForms.DataVisualization": {
             "target": "Package",
