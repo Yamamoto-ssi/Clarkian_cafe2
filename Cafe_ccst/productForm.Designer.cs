@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -48,6 +49,7 @@
             lblSearch = new Label();
             btnRefresh = new Button();
             btnLogout = new Button();
+            btnUpdate = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProductList).BeginInit();
             SuspendLayout();
             // 
@@ -89,6 +91,7 @@
             // 
             // btnClear
             // 
+            btnClear.ForeColor = SystemColors.ActiveCaptionText;
             btnClear.Location = new Point(31, 488);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(80, 35);
@@ -99,6 +102,7 @@
             // 
             // btnAdd
             // 
+            btnAdd.ForeColor = SystemColors.ActiveCaptionText;
             btnAdd.Location = new Point(31, 425);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(80, 35);
@@ -131,7 +135,7 @@
             // lblCategory_ID
             // 
             lblCategory_ID.AutoSize = true;
-            lblCategory_ID.Location = new Point(28, 126);
+            lblCategory_ID.Location = new Point(31, 61);
             lblCategory_ID.Name = "lblCategory_ID";
             lblCategory_ID.Size = new Size(71, 15);
             lblCategory_ID.TabIndex = 22;
@@ -146,6 +150,7 @@
             // 
             // btnDelete
             // 
+            btnDelete.ForeColor = SystemColors.ActiveCaptionText;
             btnDelete.Location = new Point(149, 425);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(80, 35);
@@ -156,7 +161,7 @@
             // 
             // txtCategory_ID
             // 
-            txtCategory_ID.Location = new Point(31, 147);
+            txtCategory_ID.Location = new Point(31, 108);
             txtCategory_ID.Name = "txtCategory_ID";
             txtCategory_ID.Size = new Size(201, 23);
             txtCategory_ID.TabIndex = 37;
@@ -174,14 +179,23 @@
             // dgvProductList
             // 
             dgvProductList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvProductList.BackgroundColor = SystemColors.ActiveCaption;
+            dgvProductList.BackgroundColor = SystemColors.ControlLightLight;
             dgvProductList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvProductList.DefaultCellStyle = dataGridViewCellStyle1;
             dgvProductList.GridColor = SystemColors.MenuHighlight;
             dgvProductList.Location = new Point(315, 71);
             dgvProductList.Name = "dgvProductList";
             dgvProductList.Size = new Size(697, 485);
             dgvProductList.TabIndex = 39;
             dgvProductList.CellContentClick += dgvProductList_CellContentClick;
+            dgvProductList.DataBindingComplete += dgvProductList_DataBindingComplete;
             // 
             // txtSearch
             // 
@@ -192,6 +206,7 @@
             // 
             // btnSearch
             // 
+            btnSearch.ForeColor = SystemColors.ActiveCaptionText;
             btnSearch.Location = new Point(716, 22);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(80, 23);
@@ -211,6 +226,7 @@
             // 
             // btnRefresh
             // 
+            btnRefresh.ForeColor = SystemColors.ActiveCaptionText;
             btnRefresh.Location = new Point(899, 30);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(75, 23);
@@ -221,20 +237,38 @@
             // 
             // btnLogout
             // 
+            btnLogout.BackColor = SystemColors.ActiveCaptionText;
+            btnLogout.FlatAppearance.BorderColor = SystemColors.ButtonFace;
+            btnLogout.FlatAppearance.BorderSize = 3;
+            btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogout.Location = new Point(869, 703);
+            btnLogout.ForeColor = SystemColors.ButtonFace;
+            btnLogout.Location = new Point(860, 589);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(143, 46);
             btnLogout.TabIndex = 44;
             btnLogout.Text = "Back";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.ForeColor = SystemColors.ActiveCaptionText;
+            btnUpdate.Location = new Point(149, 488);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(80, 35);
+            btnUpdate.TabIndex = 45;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // productForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(1024, 761);
+            Controls.Add(btnUpdate);
             Controls.Add(btnLogout);
             Controls.Add(btnRefresh);
             Controls.Add(dgvProductList);
@@ -255,6 +289,7 @@
             Controls.Add(txtDescription);
             Controls.Add(lblCategory_ID);
             Controls.Add(txtName);
+            ForeColor = SystemColors.ControlLightLight;
             Name = "productForm";
             Text = "productForm";
             Load += productForm_Load;
@@ -285,5 +320,6 @@
         private Label lblSearch;
         private Button btnRefresh;
         private Button btnLogout;
+        private Button btnUpdate;
     }
 }

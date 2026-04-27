@@ -17,17 +17,22 @@ namespace Cafe_ccst
 
         private void btnInventory_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
             productForm product = new productForm();
-            product.ShowDialog();
+            product.Show();
+            this.Hide();
         }
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
+            orderlist_manager orderList = new orderlist_manager();
+            orderList.Show();
+            this.Hide();
+
 
         }
 
@@ -41,6 +46,26 @@ namespace Cafe_ccst
             Login login = new Login();
             login.Show();
             this.Hide();
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
 
         }
     }

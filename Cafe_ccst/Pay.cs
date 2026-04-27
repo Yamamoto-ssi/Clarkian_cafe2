@@ -29,8 +29,8 @@ namespace Cafe_ccst
             // Save the receipt text into memory so we can use it later!
             currentReceipt = receiptFromMenu; // <--- NEW
         }
-    
-    // ... the rest of your code (panel1_Paint, btnPay_Click, etc.) stays exactly the same!
+
+        // ... the rest of your code (panel1_Paint, btnPay_Click, etc.) stays exactly the same!
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -83,8 +83,13 @@ namespace Cafe_ccst
                 MessageBox.Show("Please enter a valid number for the cash!");
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
-    
+
 
 }
     

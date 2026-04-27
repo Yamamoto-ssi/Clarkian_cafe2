@@ -31,8 +31,23 @@ namespace Cafe_ccst
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-                        orderlist_employee orderList = new orderlist_employee();
-                                    orderList.Show();
+            orderlist_employee orderList = new orderlist_employee();
+            orderList.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employee_dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

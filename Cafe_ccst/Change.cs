@@ -30,11 +30,7 @@ namespace Cafe_ccst
 
         // ... the rest of your code stays below ...
 
-        public Change(float calculatedChange)
-        {
-            InitializeComponent();
-            lblChange.Text = $"₱ {calculatedChange:0.00}";
-        }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

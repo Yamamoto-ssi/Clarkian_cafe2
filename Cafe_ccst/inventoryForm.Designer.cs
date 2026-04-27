@@ -45,16 +45,15 @@
             label3 = new Label();
             label4 = new Label();
             dgvProductList = new DataGridView();
-            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dgvProductList).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // txtName
             // 
             txtName.Location = new Point(54, 183);
+            txtName.Multiline = true;
             txtName.Name = "txtName";
-            txtName.Size = new Size(201, 23);
+            txtName.Size = new Size(293, 26);
             txtName.TabIndex = 0;
             // 
             // lblProductID
@@ -78,74 +77,86 @@
             // txtDescription
             // 
             txtDescription.Location = new Point(54, 242);
+            txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(201, 23);
+            txtDescription.Size = new Size(293, 26);
             txtDescription.TabIndex = 4;
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(54, 299);
+            txtPrice.Location = new Point(68, 299);
+            txtPrice.Multiline = true;
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(201, 23);
+            txtPrice.Size = new Size(293, 26);
             txtPrice.TabIndex = 5;
+            txtPrice.TextChanged += txtPrice_TextChanged;
             // 
             // txtImage
             // 
             txtImage.Location = new Point(54, 366);
+            txtImage.Multiline = true;
             txtImage.Name = "txtImage";
-            txtImage.Size = new Size(201, 23);
+            txtImage.Size = new Size(293, 26);
             txtImage.TabIndex = 6;
             // 
             // btnUpdate
             // 
+            btnUpdate.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.Location = new Point(165, 416);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(80, 35);
+            btnUpdate.RightToLeft = RightToLeft.No;
+            btnUpdate.Size = new Size(165, 55);
             btnUpdate.TabIndex = 8;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(57, 480);
+            btnClear.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClear.Location = new Point(12, 425);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(80, 35);
+            btnClear.Size = new Size(165, 55);
             btnClear.TabIndex = 10;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
             // 
             // btnRestock
             // 
-            btnRestock.Location = new Point(165, 480);
+            btnRestock.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRestock.Location = new Point(198, 549);
             btnRestock.Name = "btnRestock";
-            btnRestock.Size = new Size(80, 35);
+            btnRestock.Size = new Size(165, 55);
             btnRestock.TabIndex = 11;
             btnRestock.Text = "Restock";
             btnRestock.UseVisualStyleBackColor = true;
             // 
             // btnRefresh
             // 
-            btnRefresh.Location = new Point(533, 65);
+            btnRefresh.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRefresh.Location = new Point(182, 38);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(80, 35);
+            btnRefresh.Size = new Size(148, 39);
             btnRefresh.TabIndex = 12;
             btnRefresh.Text = "Refresh";
             btnRefresh.UseVisualStyleBackColor = true;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(665, 65);
+            btnSearch.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(822, 35);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(80, 35);
+            btnSearch.Size = new Size(140, 42);
             btnSearch.TabIndex = 13;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(766, 72);
+            txtSearch.Location = new Point(363, 63);
+            txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(201, 23);
+            txtSearch.Size = new Size(355, 26);
             txtSearch.TabIndex = 14;
             // 
             // label1
@@ -186,6 +197,7 @@
             // 
             // dgvProductList
             // 
+            dgvProductList.BackgroundColor = SystemColors.ActiveCaptionText;
             dgvProductList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProductList.Location = new Point(353, 106);
             dgvProductList.Name = "dgvProductList";
@@ -193,19 +205,12 @@
             dgvProductList.TabIndex = 1;
             dgvProductList.CellContentClick += dgvProductList_CellContentClick;
             // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(417, 655);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 19;
-            // 
             // inventoryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1024, 768);
-            Controls.Add(numericUpDown1);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(1024, 629);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -226,7 +231,6 @@
             Name = "inventoryForm";
             Text = "inventoryForm";
             ((System.ComponentModel.ISupportInitialize)dgvProductList).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -250,6 +254,5 @@
         private Label label3;
         private Label label4;
         private DataGridView dgvProductList;
-        private NumericUpDown numericUpDown1;
     }
 }

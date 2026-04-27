@@ -55,25 +55,25 @@
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
             panel1.Controls.Add(flpProducts);
-            panel1.Location = new Point(2, 9);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(742, 683);
+            panel1.Size = new Size(742, 680);
             panel1.TabIndex = 0;
             // 
             // flpProducts
             // 
             flpProducts.AutoScroll = true;
-            flpProducts.BackColor = SystemColors.ButtonHighlight;
+            flpProducts.BackColor = SystemColors.ActiveCaptionText;
             flpProducts.Dock = DockStyle.Fill;
             flpProducts.Location = new Point(0, 0);
             flpProducts.Name = "flpProducts";
-            flpProducts.Size = new Size(742, 683);
+            flpProducts.Size = new Size(742, 680);
             flpProducts.TabIndex = 0;
             flpProducts.Paint += flpProducts_Paint;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Peru;
+            panel2.BackColor = SystemColors.ActiveCaptionText;
             panel2.Controls.Add(lstOrders);
             panel2.Location = new Point(766, 12);
             panel2.Name = "panel2";
@@ -84,22 +84,23 @@
             // 
             lstOrders.FormattingEnabled = true;
             lstOrders.ItemHeight = 15;
-            lstOrders.Location = new Point(12, 15);
+            lstOrders.Location = new Point(12, 18);
             lstOrders.Name = "lstOrders";
-            lstOrders.Size = new Size(307, 364);
+            lstOrders.Size = new Size(304, 349);
             lstOrders.TabIndex = 0;
             lstOrders.SelectedIndexChanged += lstOrders_SelectedIndexChanged;
             lstOrders.DoubleClick += lstOrders_DoubleClick_1;
             // 
             // panel3
             // 
-            panel3.BackColor = Color.Cornsilk;
+            panel3.BackColor = SystemColors.ActiveCaptionText;
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(txtTotal);
             panel3.Controls.Add(txtDiscount);
             panel3.Controls.Add(txtRaw);
+            panel3.ForeColor = SystemColors.ButtonFace;
             panel3.Location = new Point(766, 484);
             panel3.Name = "panel3";
             panel3.Size = new Size(319, 208);
@@ -109,7 +110,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(56, 164);
+            label3.Location = new Point(56, 158);
             label3.Name = "label3";
             label3.Size = new Size(35, 15);
             label3.TabIndex = 10;
@@ -119,7 +120,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 102);
+            label2.Location = new Point(34, 96);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 9;
@@ -128,7 +129,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 41);
+            label1.Location = new Point(12, 35);
             label1.Name = "label1";
             label1.Size = new Size(79, 15);
             label1.TabIndex = 8;
@@ -137,7 +138,7 @@
             // txtTotal
             // 
             txtTotal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTotal.Location = new Point(110, 156);
+            txtTotal.Location = new Point(97, 150);
             txtTotal.Name = "txtTotal";
             txtTotal.Size = new Size(206, 29);
             txtTotal.TabIndex = 7;
@@ -145,7 +146,7 @@
             // txtDiscount
             // 
             txtDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDiscount.Location = new Point(110, 94);
+            txtDiscount.Location = new Point(97, 88);
             txtDiscount.Name = "txtDiscount";
             txtDiscount.Size = new Size(206, 29);
             txtDiscount.TabIndex = 6;
@@ -153,7 +154,7 @@
             // txtRaw
             // 
             txtRaw.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRaw.Location = new Point(110, 33);
+            txtRaw.Location = new Point(97, 27);
             txtRaw.Name = "txtRaw";
             txtRaw.Size = new Size(206, 29);
             txtRaw.TabIndex = 0;
@@ -195,23 +196,27 @@
             // 
             // btnPay
             // 
-            btnPay.BackColor = SystemColors.ControlDark;
+            btnPay.BackColor = Color.DarkOliveGreen;
+            btnPay.FlatAppearance.BorderColor = Color.OliveDrab;
+            btnPay.FlatAppearance.BorderSize = 3;
+            btnPay.FlatStyle = FlatStyle.Flat;
             btnPay.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPay.Location = new Point(954, 712);
+            btnPay.Location = new Point(849, 711);
             btnPay.Name = "btnPay";
-            btnPay.Size = new Size(131, 49);
+            btnPay.Size = new Size(165, 55);
             btnPay.TabIndex = 3;
-            btnPay.Text = "PAY";
+            btnPay.Text = "Pay";
             btnPay.UseVisualStyleBackColor = false;
             btnPay.Click += btnPay_Click;
             // 
             // pnlDiscount
             // 
-            pnlDiscount.BackColor = SystemColors.ActiveCaption;
+            pnlDiscount.BackColor = SystemColors.ActiveCaptionText;
             pnlDiscount.Controls.Add(rbSeniorCitizen);
             pnlDiscount.Controls.Add(rbPWD);
             pnlDiscount.Controls.Add(rbRegular);
             pnlDiscount.Enabled = false;
+            pnlDiscount.ForeColor = SystemColors.ButtonFace;
             pnlDiscount.Location = new Point(768, 418);
             pnlDiscount.Name = "pnlDiscount";
             pnlDiscount.Size = new Size(317, 49);
@@ -219,20 +224,26 @@
             // 
             // btnLogout
             // 
+            btnLogout.BackColor = SystemColors.ActiveCaptionText;
+            btnLogout.FlatAppearance.BorderColor = Color.White;
+            btnLogout.FlatAppearance.BorderSize = 3;
+            btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogout.Location = new Point(12, 729);
+            btnLogout.ForeColor = SystemColors.ButtonFace;
+            btnLogout.Location = new Point(12, 715);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(143, 46);
+            btnLogout.Size = new Size(165, 55);
             btnLogout.TabIndex = 8;
             btnLogout.Text = "Back";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1109, 812);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(1109, 794);
             Controls.Add(btnLogout);
             Controls.Add(pnlDiscount);
             Controls.Add(btnPay);

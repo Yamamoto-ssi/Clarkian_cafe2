@@ -36,6 +36,9 @@ namespace Cafe_ccst
         private void admin_dashboard_Load(object sender, EventArgs e)
         {
 
+
+
+
         }
 
         private void chart1_Click_1(object sender, EventArgs e)

@@ -63,10 +63,10 @@ namespace Cafe_ccst
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            finally { db.Close(); }
-
-
-
+            finally 
+            { 
+                db.Close(); 
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace Cafe_ccst
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
+
             // 1. Check if an account is actually selected
             if (dgvAccounts.CurrentRow == null || dgvAccounts.CurrentRow.IsNewRow)
             {
@@ -179,6 +179,23 @@ namespace Cafe_ccst
             // 5. Refresh the grid so the new changes appear instantly!
             LoadStudents();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            admin_dashboard adminDashboard = new admin_dashboard();
+            adminDashboard.Show();
+            this.Hide();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadStudents();
+        }
+
+        private void user_management_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-    
+
 }

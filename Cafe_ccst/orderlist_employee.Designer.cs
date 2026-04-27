@@ -47,8 +47,9 @@
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = SystemColors.ActiveCaptionText;
-            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.BackColor = SystemColors.ControlDark;
+            btnSearch.FlatAppearance.BorderColor = SystemColors.ButtonFace;
+            btnSearch.FlatAppearance.BorderSize = 3;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = SystemColors.ButtonFace;

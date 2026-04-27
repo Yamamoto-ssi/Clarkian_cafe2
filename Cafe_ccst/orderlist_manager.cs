@@ -132,6 +132,13 @@ namespace Cafe_ccst
                 db.Close();
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            manager_dashboard dashboard = new manager_dashboard();
+            dashboard.Show();
+            this.Hide();
+        } 
     }
-    
+
 }

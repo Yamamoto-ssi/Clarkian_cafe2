@@ -8,7 +8,7 @@ namespace Cafe_ccst
     public class DBConnect
     {
         private MySqlConnection connection = new MySqlConnection(
-            "server=localhost;user=root;database=cafe_ccst(2);port=3306;password=;"
+            "server=localhost;user=root;database=cafe_ccst;port=3306;password=;"
         );
 
         public MySqlConnection Connection => connection;

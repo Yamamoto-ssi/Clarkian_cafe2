@@ -147,5 +147,10 @@ namespace Cafe_ccst
             login.Show();
             this.Hide();
         }
+
+        private void l_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

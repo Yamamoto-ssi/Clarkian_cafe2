@@ -45,13 +45,15 @@
             label7 = new Label();
             label8 = new Label();
             btnLogout = new Button();
+            label9 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(139, 55);
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(23, 72);
             label1.Name = "label1";
             label1.Size = new Size(106, 25);
             label1.TabIndex = 0;
@@ -61,7 +63,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(139, 147);
+            label3.Location = new Point(267, 236);
             label3.Name = "label3";
             label3.Size = new Size(0, 25);
             label3.TabIndex = 2;
@@ -69,77 +71,82 @@
             // txtLastname
             // 
             txtLastname.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtLastname.Location = new Point(249, 51);
+            txtLastname.Location = new Point(23, 100);
             txtLastname.Name = "txtLastname";
-            txtLastname.Size = new Size(370, 29);
+            txtLastname.Size = new Size(385, 29);
             txtLastname.TabIndex = 7;
             // 
             // txtFirstname
             // 
             txtFirstname.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtFirstname.ForeColor = Color.Black;
-            txtFirstname.Location = new Point(249, 96);
+            txtFirstname.Location = new Point(23, 160);
             txtFirstname.Name = "txtFirstname";
-            txtFirstname.Size = new Size(370, 29);
+            txtFirstname.Size = new Size(385, 29);
             txtFirstname.TabIndex = 8;
             // 
             // txtMiddlename
             // 
             txtMiddlename.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMiddlename.Location = new Point(249, 147);
+            txtMiddlename.Location = new Point(23, 220);
             txtMiddlename.Name = "txtMiddlename";
-            txtMiddlename.Size = new Size(370, 29);
+            txtMiddlename.Size = new Size(385, 29);
             txtMiddlename.TabIndex = 9;
             // 
             // txtEmail
             // 
             txtEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtEmail.Location = new Point(249, 195);
+            txtEmail.Location = new Point(23, 280);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(370, 29);
+            txtEmail.Size = new Size(385, 29);
             txtEmail.TabIndex = 10;
             // 
             // txtUsername
             // 
             txtUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(249, 249);
+            txtUsername.Location = new Point(21, 340);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(370, 29);
+            txtUsername.Size = new Size(387, 29);
             txtUsername.TabIndex = 11;
             txtUsername.TextChanged += textBox5_TextChanged;
             // 
             // txtPassword
             // 
             txtPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(249, 307);
+            txtPassword.Location = new Point(21, 400);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(370, 29);
+            txtPassword.Size = new Size(387, 29);
             txtPassword.TabIndex = 12;
             // 
             // txtConfirmpassword
             // 
             txtConfirmpassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtConfirmpassword.Location = new Point(249, 357);
+            txtConfirmpassword.Location = new Point(21, 460);
             txtConfirmpassword.Name = "txtConfirmpassword";
-            txtConfirmpassword.Size = new Size(370, 29);
+            txtConfirmpassword.Size = new Size(387, 29);
             txtConfirmpassword.TabIndex = 13;
             // 
             // btnRegister
             // 
+            btnRegister.BackColor = Color.DarkGray;
+            btnRegister.FlatAppearance.BorderColor = Color.Gray;
+            btnRegister.FlatAppearance.BorderSize = 3;
             btnRegister.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegister.Location = new Point(249, 411);
+            btnRegister.ForeColor = SystemColors.ButtonFace;
+            btnRegister.Location = new Point(243, 532);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(370, 50);
+            btnRegister.Size = new Size(165, 55);
             btnRegister.TabIndex = 15;
-            btnRegister.Text = "REGISTER";
-            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(139, 96);
+            label2.ForeColor = SystemColors.ButtonFace;
+            label2.Location = new Point(23, 132);
             label2.Name = "label2";
             label2.Size = new Size(104, 25);
             label2.TabIndex = 16;
@@ -149,7 +156,8 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(117, 151);
+            label4.ForeColor = SystemColors.ButtonFace;
+            label4.Location = new Point(23, 192);
             label4.Name = "label4";
             label4.Size = new Size(133, 25);
             label4.TabIndex = 17;
@@ -159,7 +167,8 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(181, 199);
+            label5.ForeColor = SystemColors.ButtonFace;
+            label5.Location = new Point(23, 252);
             label5.Name = "label5";
             label5.Size = new Size(64, 25);
             label5.TabIndex = 18;
@@ -169,7 +178,8 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(137, 253);
+            label6.ForeColor = SystemColors.ButtonFace;
+            label6.Location = new Point(21, 312);
             label6.Name = "label6";
             label6.Size = new Size(106, 25);
             label6.TabIndex = 19;
@@ -179,7 +189,8 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(137, 311);
+            label7.ForeColor = SystemColors.ButtonFace;
+            label7.Location = new Point(23, 372);
             label7.Name = "label7";
             label7.Size = new Size(102, 25);
             label7.TabIndex = 20;
@@ -189,7 +200,8 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(63, 361);
+            label8.ForeColor = SystemColors.ButtonFace;
+            label8.Location = new Point(21, 432);
             label8.Name = "label8";
             label8.Size = new Size(180, 25);
             label8.TabIndex = 21;
@@ -197,20 +209,38 @@
             // 
             // btnLogout
             // 
+            btnLogout.BackColor = SystemColors.ActiveCaptionText;
+            btnLogout.FlatAppearance.BorderColor = Color.White;
+            btnLogout.FlatAppearance.BorderSize = 3;
             btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogout.Location = new Point(869, 12);
+            btnLogout.ForeColor = SystemColors.ButtonFace;
+            btnLogout.Location = new Point(21, 533);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(143, 46);
+            btnLogout.Size = new Size(165, 55);
             btnLogout.TabIndex = 22;
             btnLogout.Text = "Back";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.ButtonFace;
+            label9.Location = new Point(85, 9);
+            label9.Name = "label9";
+            label9.Size = new Size(276, 37);
+            label9.TabIndex = 23;
+            label9.Text = "REGISTER ACCOUNT";
             // 
             // l
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1024, 768);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(440, 629);
+            Controls.Add(label9);
             Controls.Add(btnLogout);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -230,6 +260,7 @@
             Controls.Add(label1);
             Name = "l";
             Text = "register_account";
+            Load += l_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,5 +284,6 @@
         private Label label7;
         private Label label8;
         private Button btnLogout;
+        private Label label9;
     }
 }

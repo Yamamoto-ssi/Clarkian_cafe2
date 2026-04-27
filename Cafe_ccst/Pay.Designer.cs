@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            label1 = new Label();
             lblTotal = new Label();
             btnPay = new Button();
             panel3 = new Panel();
-            txtCash = new TextBox();
-            label1 = new Label();
             label2 = new Label();
+            txtCash = new TextBox();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -50,6 +50,17 @@
             panel2.Size = new Size(355, 182);
             panel2.TabIndex = 9;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(13, 52);
+            label1.Name = "label1";
+            label1.Size = new Size(56, 21);
+            label1.TabIndex = 10;
+            label1.Text = "TOTAL";
+            // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
@@ -62,9 +73,12 @@
             // 
             // btnPay
             // 
-            btnPay.BackColor = SystemColors.ControlDark;
+            btnPay.BackColor = SystemColors.ControlDarkDark;
+            btnPay.FlatAppearance.BorderSize = 0;
+            btnPay.FlatStyle = FlatStyle.Flat;
             btnPay.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPay.Location = new Point(237, 473);
+            btnPay.ForeColor = SystemColors.ButtonFace;
+            btnPay.Location = new Point(108, 165);
             btnPay.Name = "btnPay";
             btnPay.Size = new Size(147, 37);
             btnPay.TabIndex = 8;
@@ -76,41 +90,32 @@
             // 
             panel3.BackColor = SystemColors.ActiveCaptionText;
             panel3.Controls.Add(label2);
+            panel3.Controls.Add(btnPay);
             panel3.Controls.Add(txtCash);
             panel3.Location = new Point(29, 236);
             panel3.Name = "panel3";
             panel3.Size = new Size(355, 231);
             panel3.TabIndex = 7;
             // 
-            // txtCash
-            // 
-            txtCash.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtCash.Location = new Point(15, 126);
-            txtCash.Name = "txtCash";
-            txtCash.Size = new Size(323, 39);
-            txtCash.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(147, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(56, 21);
-            label1.TabIndex = 10;
-            label1.Text = "TOTAL";
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonFace;
-            label2.Location = new Point(151, 15);
+            label2.Location = new Point(13, 52);
             label2.Name = "label2";
             label2.Size = new Size(52, 21);
             label2.TabIndex = 11;
             label2.Text = "CASH";
+            label2.Click += label2_Click;
+            // 
+            // txtCash
+            // 
+            txtCash.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtCash.Location = new Point(13, 76);
+            txtCash.Name = "txtCash";
+            txtCash.Size = new Size(323, 39);
+            txtCash.TabIndex = 0;
             // 
             // Pay
             // 
@@ -119,7 +124,6 @@
             BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(413, 483);
             Controls.Add(panel2);
-            Controls.Add(btnPay);
             Controls.Add(panel3);
             Name = "Pay";
             Text = "Pay";

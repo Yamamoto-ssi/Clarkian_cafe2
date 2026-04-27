@@ -35,13 +35,15 @@
             btnDelete = new Button();
             btnRefresh = new Button();
             btnLogout = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAccounts).BeginInit();
             SuspendLayout();
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = SystemColors.ActiveCaptionText;
-            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.BackColor = Color.DarkGray;
+            btnSearch.FlatAppearance.BorderColor = Color.Gray;
+            btnSearch.FlatAppearance.BorderSize = 3;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = SystemColors.ButtonFace;
@@ -51,13 +53,14 @@
             btnSearch.TabIndex = 0;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
             txtSearch.BackColor = SystemColors.ButtonFace;
             txtSearch.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSearch.ForeColor = SystemColors.ActiveCaptionText;
-            txtSearch.Location = new Point(151, 34);
+            txtSearch.Location = new Point(169, 44);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(543, 39);
@@ -77,7 +80,8 @@
             // btnUpdate
             // 
             btnUpdate.BackColor = Color.Goldenrod;
-            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatAppearance.BorderColor = Color.Khaki;
+            btnUpdate.FlatAppearance.BorderSize = 3;
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = SystemColors.ButtonFace;
@@ -92,7 +96,8 @@
             // btnDelete
             // 
             btnDelete.BackColor = Color.Maroon;
-            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatAppearance.BorderColor = Color.IndianRed;
+            btnDelete.FlatAppearance.BorderSize = 3;
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = SystemColors.ButtonFace;
@@ -107,7 +112,8 @@
             // btnRefresh
             // 
             btnRefresh.BackColor = Color.SteelBlue;
-            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatAppearance.BorderColor = Color.SkyBlue;
+            btnRefresh.FlatAppearance.BorderSize = 3;
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRefresh.ForeColor = SystemColors.ButtonFace;
@@ -130,12 +136,29 @@
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Black;
+            button1.FlatAppearance.BorderColor = SystemColors.ButtonFace;
+            button1.FlatAppearance.BorderSize = 3;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ButtonFace;
+            button1.Location = new Point(35, 544);
+            button1.Name = "button1";
+            button1.Size = new Size(165, 55);
+            button1.TabIndex = 24;
+            button1.Text = "Back";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // user_management
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(984, 611);
+            Controls.Add(button1);
             Controls.Add(btnLogout);
             Controls.Add(btnRefresh);
             Controls.Add(btnDelete);
@@ -145,6 +168,7 @@
             Controls.Add(btnSearch);
             Name = "user_management";
             Text = "user_management";
+            Load += user_management_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAccounts).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -159,5 +183,6 @@
         private Button btnDelete;
         private Button btnRefresh;
         private Button btnLogout;
+        private Button button1;
     }
 }

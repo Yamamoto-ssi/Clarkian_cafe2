@@ -18,12 +18,15 @@ namespace Cafe_ccst
         public productForm()
         {
             InitializeComponent();
+            dgvProductList.ClearSelection();
             LoadProducts();
         }
 
         private void productForm_Load(object sender, EventArgs e)
         {
-
+            txtSearch.Focus();
+            dgvProductList.ClearSelection();
+            dgvProductList.CurrentCell = null;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -99,6 +102,15 @@ namespace Cafe_ccst
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
+                // 1. Get the current user's profile path (C:\Users\Username)
+                string userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+                // 2. Combine it with the rest of your specific folder path
+                string targetFolder = System.IO.Path.Combine(userProfile, @"Downloads\Clarkian_cafe2-main\Cafe_ccst\Resources");
+
+                // 3. Tell the file dialog to start in this folder
+                openFileDialog.InitialDirectory = targetFolder;
+
                 openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.gif;*.bmp)|*.jpg;*.jpeg;*.png;*.gif;*.bmp|All Files (*.*)|*.*";
                 openFileDialog.Title = "Select Product Image";
 
@@ -141,22 +153,31 @@ namespace Cafe_ccst
                 table.Columns.Add("ProductImage", typeof(System.Drawing.Image));
 
                 // 2. Loop through each row to load the image from the file path
+                // 2. Loop through each row to load the image from the file path
                 foreach (System.Data.DataRow row in table.Rows)
                 {
                     string imagePath = row["image_url"].ToString();
 
-                    // Check if the file actually exists to prevent the app from crashing
                     if (System.IO.File.Exists(imagePath))
                     {
-                        // Using a stream prevents the image file from being locked by the application
-                        using (var stream = new System.IO.FileStream(imagePath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                        try
                         {
-                            row["ProductImage"] = System.Drawing.Image.FromStream(stream);
+                            // Try to load the image safely
+                            using (var stream = new System.IO.FileStream(imagePath, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+                            {
+                                row["ProductImage"] = System.Drawing.Image.FromStream(stream);
+                            }
+                        }
+                        catch (ArgumentException)
+                        {
+                            // If the file exists but is NOT a valid image (corrupt, wrong format, etc.)
+                            // We catch the error silently and just leave the image null so the app doesn't crash
+                            row["ProductImage"] = null;
                         }
                     }
                     else
                     {
-                        // If the file doesn't exist, you can leave it null or load a default "Image Not Found" picture
+                        // If the file doesn't exist
                         row["ProductImage"] = null;
                     }
                 }
@@ -279,6 +300,40 @@ namespace Cafe_ccst
             {
                 db.Close();
             }
+        }
+
+        private void dgvProductList_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvProductList.ClearSelection();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvProductList.CurrentRow == null || dgvProductList.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show("Please select a product from the list first.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Grab the specific row the user clicked on
+            DataGridViewRow row = dgvProductList.CurrentRow;
+
+            // 3. Extract ALL the data from the cells. 
+            // Make sure these match the exact column names you set in LoadProducts()
+            int selectedId = Convert.ToInt32(row.Cells["product_id"].Value);
+            int category = Convert.ToInt32(row.Cells["category_id"].Value);
+            string name = row.Cells["name"].Value.ToString();
+            string description = row.Cells["description"].Value.ToString();
+
+            // Your constructor expects price to be a string, so we'll leave it as a string here
+            string price = row.Cells["price"].Value.ToString();
+
+            // Use the hidden URL column to get the file path
+            string image = row.Cells["image_url"].Value.ToString();
+
+            // 4. Pass ALL of those variables into the new form in the exact order the constructor asked for them
+            update_product updateProductForm = new update_product(selectedId, category, name, description, price, image);
+            updateProductForm.ShowDialog();
         }
     }
 }
