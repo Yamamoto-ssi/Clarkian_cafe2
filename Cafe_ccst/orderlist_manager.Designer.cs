@@ -37,46 +37,59 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(514, 65);
+            txtSearch.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(148, 46);
+            txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(276, 23);
+            txtSearch.Size = new Size(543, 39);
             txtSearch.TabIndex = 5;
             // 
             // btnSearch
             // 
+            btnSearch.BackColor = SystemColors.ActiveCaptionText;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(365, 51);
+            btnSearch.ForeColor = SystemColors.ButtonFace;
+            btnSearch.Location = new Point(719, 46);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(143, 38);
+            btnSearch.Size = new Size(165, 55);
             btnSearch.TabIndex = 4;
             btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // dgvOrderlist
             // 
             dgvOrderlist.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrderlist.BackgroundColor = SystemColors.ActiveCaptionText;
             dgvOrderlist.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderlist.Location = new Point(11, 94);
+            dgvOrderlist.Location = new Point(36, 117);
             dgvOrderlist.Name = "dgvOrderlist";
-            dgvOrderlist.Size = new Size(779, 514);
+            dgvOrderlist.Size = new Size(914, 402);
             dgvOrderlist.TabIndex = 3;
             dgvOrderlist.CellContentClick += dgvOrderlist_CellContentClick;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(254, 47);
+            btnDelete.BackColor = Color.DarkRed;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDelete.ForeColor = SystemColors.ButtonFace;
+            btnDelete.Location = new Point(785, 544);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(100, 42);
+            btnDelete.Size = new Size(165, 55);
             btnDelete.TabIndex = 6;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // orderlist_manager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 658);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(984, 611);
             Controls.Add(btnDelete);
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);

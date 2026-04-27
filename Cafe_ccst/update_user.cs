@@ -97,5 +97,15 @@ namespace Cafe_ccst
             }
 
         }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void update_user_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

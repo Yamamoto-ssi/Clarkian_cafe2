@@ -37,35 +37,43 @@
             // dgvOrderlist
             // 
             dgvOrderlist.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrderlist.BackgroundColor = SystemColors.ActiveCaptionText;
             dgvOrderlist.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderlist.Location = new Point(13, 83);
+            dgvOrderlist.Location = new Point(30, 99);
             dgvOrderlist.Name = "dgvOrderlist";
-            dgvOrderlist.Size = new Size(779, 514);
+            dgvOrderlist.Size = new Size(942, 500);
             dgvOrderlist.TabIndex = 0;
             dgvOrderlist.CellContentClick += dgvOrderlist_CellContentClick;
             // 
             // btnSearch
             // 
-            btnSearch.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(367, 40);
+            btnSearch.BackColor = SystemColors.ActiveCaptionText;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = SystemColors.ButtonFace;
+            btnSearch.Location = new Point(756, 24);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(143, 38);
+            btnSearch.Size = new Size(165, 55);
             btnSearch.TabIndex = 1;
             btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(516, 54);
+            txtSearch.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(185, 24);
+            txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(276, 23);
+            txtSearch.Size = new Size(543, 39);
             txtSearch.TabIndex = 2;
             // 
             // orderlist_employee
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 608);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(984, 611);
             Controls.Add(txtSearch);
             Controls.Add(btnSearch);
             Controls.Add(dgvOrderlist);

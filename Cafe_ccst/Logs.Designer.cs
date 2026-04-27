@@ -36,29 +36,35 @@
             // dgvLogs
             // 
             dgvLogs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLogs.BackgroundColor = SystemColors.ActiveCaptionText;
             dgvLogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLogs.Location = new Point(12, 68);
+            dgvLogs.Location = new Point(21, 89);
             dgvLogs.Name = "dgvLogs";
-            dgvLogs.Size = new Size(670, 514);
+            dgvLogs.Size = new Size(942, 500);
             dgvLogs.TabIndex = 0;
             dgvLogs.CellContentClick += dgvLogs_CellContentClick;
             // 
             // btnLogout
             // 
+            btnLogout.BackColor = SystemColors.ActiveCaptionText;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLogout.Location = new Point(12, 16);
+            btnLogout.ForeColor = SystemColors.ButtonFace;
+            btnLogout.Location = new Point(21, 16);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(143, 46);
+            btnLogout.Size = new Size(165, 55);
             btnLogout.TabIndex = 23;
             btnLogout.Text = "Back";
-            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
             // 
             // Logs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(694, 605);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(984, 611);
             Controls.Add(btnLogout);
             Controls.Add(dgvLogs);
             Name = "Logs";
